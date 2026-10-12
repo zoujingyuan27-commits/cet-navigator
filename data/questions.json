@@ -38,7 +38,10 @@
           "D": "范围过窄：Agok的电脑课只是一个具体例子，文章讨论的是更宏观的经济影响。"
         }
       },
-      "tags": ["main_idea", "paraphrase_recognition"],
+      "tags": [
+        "paraphrase_failure",
+        "example_claim_confusion"
+      ],
       "difficulty": 2,
       "difficulty_reason": "需要识别 'keeps a lid on' 的引申义，并区分具体例子和中心论点",
       "used_count": 0,
@@ -74,7 +77,10 @@
           "D": "混淆时态与主语：这是作者的建议，不是对过去努力的描述。"
         }
       },
-      "tags": ["detail_finding", "absolute_word_trap"],
+      "tags": [
+        "detail_substitution_missed",
+        "scope_degree_change_missed"
+      ],
       "difficulty": 2,
       "difficulty_reason": "需要区分'未能建成电网'和'电网不可靠'的细微差别，B选项是常见陷阱",
       "used_count": 0,
@@ -110,7 +116,10 @@
           "C": "无中生有：文章完全未提及重组国有电力公司。"
         }
       },
-      "tags": ["detail_finding", "paraphrase_recognition", "key_word_substitution"],
+      "tags": [
+        "paraphrase_failure",
+        "detail_substitution_missed"
+      ],
       "difficulty": 2,
       "difficulty_reason": "需要识别 'Deploying...with speed and at scale' 对应 D 中的 'speedily' 和 'large-scale'",
       "used_count": 0,
@@ -146,7 +155,10 @@
           "C": "主语混淆：'sustainable business models' 是私营企业的特点，不是政府行为。"
         }
       },
-      "tags": ["detail_finding", "subject_confusion", "paraphrase_recognition"],
+      "tags": [
+        "detail_substitution_missed",
+        "paraphrase_failure"
+      ],
       "difficulty": 3,
       "difficulty_reason": "A和C的陷阱在于混淆了行为主语（政府vs私营企业），是六级常见高难度干扰策略",
       "used_count": 0,
@@ -182,26 +194,15 @@
           "D": "混淆动机与结果：政府求助是现象，不是私企参与的根本原因。"
         }
       },
-      "tags": ["inference", "causal_reasoning", "paraphrase_recognition"],
+      "tags": [
+        "unsupported_inference",
+        "relation_confusion",
+        "paraphrase_failure"
+      ],
       "difficulty": 2,
       "difficulty_reason": "需要将 '$350 billion opportunity' 推断为商业利润动机，属于轻度推理题",
       "used_count": 0,
       "last_used": null
     }
-  ],
-  "passages": {
-    "CET6-RC-202606-S3-P2": {
-      "id": "CET6-RC-202606-S3-P2",
-      "source": "英语六级2026年6月第3套阅读理解（四选一）第2篇真题.docx",
-      "topic": "非洲电力供给与私营部门的作用",
-      "text": "On a warm October morning, Daniel Agok woke up to another disappointing day at his school in Wanyjok, South Sudan. The classes he had planned teaching computer skills to aspiring young professionals were canceled, due to an unreliable diesel generator and the absence of a municipal power grid in his area. Now, he would be losing frustrated customers as well as income. Agok is just one of the hundreds of millions of people in sub-Saharan Africa, many of whom are business owners, who still do not have dependable electricity. This inequitable access to energy continues to put their livelihood and future at risk.\n\nThe current system keeps a lid on the economic talents of people like Agok and his students. We must instead unleash their abilities and let Africa reach its true economic potential. That means wiring Africa with clean, dependable energy.\n\nHistorically, national governments on the continent have led electrification efforts, but fewer than half of the people surveyed say that the national grid is providing a reliable supply of electricity.\n\nThis has led to expensive and harmful temporary solutions. In Nigeria alone experts estimate people spend $13 billion every year on fuel for toxic, polluting generators. That number will only grow as the continent's population hits 2.5 billion people by 2050. Deploying modern grid infrastructure with speed and at scale is essential to replacing these temporary solutions with reliable and affordable alternatives.\n\nThe rapidly growing private power sector in Africa holds the key to achieving the speed and scale necessary to close the continent's energy access gap. Private companies today are building world-class infrastructure and driving forward economic growth with sustainable business models. In fact, many governments agree and have begun to embrace the private sector as partners in providing reliable power at scale. In South Africa, President Cyril Ramaphosa has streamlined licensing requirements and enlisted the private sector to play a key role.\n\nSouth Africa is just one example. Across the continent, the private sector has delivered power faster and more reliably, and governments are increasingly turning to private partners.\n\nWith the right funding and structure in place, the private sector will come together to provide this essential service. After all, electrifying sub-Saharan Africa is a $350 billion opportunity.\n\nToday, Daniel Agok is steadily growing his business in South Sudan. His town of Wanyjok was electrified by a private company, providing clean, reliable, and affordable power to his business and his neighbors. Agok now operates his growing computer skills training business smoothly. His classes are no longer affected by the smell and the constant noise of the diesel generator, and he saves money with more affordable power. His students are developing hardware and software skills.",
-      "question_ids": [
-        "CET6-RC-202606-S3-P2-Q51",
-        "CET6-RC-202606-S3-P2-Q52",
-        "CET6-RC-202606-S3-P2-Q53",
-        "CET6-RC-202606-S3-P2-Q54",
-        "CET6-RC-202606-S3-P2-Q55"
-      ]
-    }
-  }
+  ]
 }
