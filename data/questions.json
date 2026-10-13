@@ -1,0 +1,208 @@
+﻿{
+  "_comment": "CET Navigator 题库文件 | 负责人：蔡佳仪 | 格式版本：v1.0",
+  "_schema": {
+    "说明": "每道题是 questions 数组中的一个对象，字段含义见下方",
+    "id格式": "CET6-RC-{年份}{月份}-S{套次}-P{篇次}-Q{题号}",
+    "difficulty": "1=易 2=中 3=难（由整理人根据题目特点判断）",
+    "tags": "薄弱点标签，必须与 taxonomy.md 中定义的标签一致，由邹婧媛确认",
+    "used_count": "该题被推荐给用户的次数，初始为0，由 update_profile.py 维护"
+  },
+  "questions": [
+    {
+      "id": "CET6-RC-202606-S3-P2-Q51",
+      "meta": {
+        "year": 2026,
+        "month": 6,
+        "set": 3,
+        "passage_index": 2,
+        "question_number": 51,
+        "exam": "CET-6",
+        "type": "careful_reading",
+        "source": "英语六级2026年6月第3套阅读理解（四选一）第2篇真题.docx",
+        "section": "Part III Section C"
+      },
+      "passage_id": "CET6-RC-202606-S3-P2",
+      "question": "What do we learn about the current electric supply system in Africa?",
+      "options": {
+        "A": "It curbs the economic development of the continent.",
+        "B": "It mainly depends on the polluting diesel generators.",
+        "C": "It is the primary cause of inequitable distribution of wealth.",
+        "D": "It deprives many Africans of the opportunity to use computers."
+      },
+      "answer": "A",
+      "analysis": {
+        "correct_reason": "原文第二段 'The current system keeps a lid on the economic talents' 直接说明现有供电系统压制了经济发展潜力，A选项 'curbs the economic development' 是对此的同义改写。",
+        "distractor_analysis": {
+          "B": "过度概括：柴油发电机是临时解决方案，但文中未说现有系统'主要依赖'它。",
+          "C": "因果混淆：文中说的是电力不平等导致生计风险，没有说它是财富分配不平等的'首要原因'。",
+          "D": "范围过窄：Agok的电脑课只是一个具体例子，文章讨论的是更宏观的经济影响。"
+        }
+      },
+      "tags": [
+        "paraphrase_failure",
+        "example_claim_confusion"
+      ],
+      "difficulty": 2,
+      "difficulty_reason": "需要识别 'keeps a lid on' 的引申义，并区分具体例子和中心论点",
+      "used_count": 0,
+      "last_used": null
+    },
+    {
+      "id": "CET6-RC-202606-S3-P2-Q52",
+      "meta": {
+        "year": 2026,
+        "month": 6,
+        "set": 3,
+        "passage_index": 2,
+        "question_number": 52,
+        "exam": "CET-6",
+        "type": "careful_reading",
+        "source": "英语六级2026年6月第3套阅读理解（四选一）第2篇真题.docx",
+        "section": "Part III Section C"
+      },
+      "passage_id": "CET6-RC-202606-S3-P2",
+      "question": "What do we learn from the passage about Africa's past electrification efforts?",
+      "options": {
+        "A": "They have failed to meet most Africans' need of a reliable power supply.",
+        "B": "They have failed to build a national grid to provide electric power.",
+        "C": "They have unleashed the true economic potential of the continent.",
+        "D": "They have aimed at wiring Africa with clean, dependable energy."
+      },
+      "answer": "A",
+      "analysis": {
+        "correct_reason": "原文第三段 'fewer than half of the people surveyed say that the national grid is providing a reliable supply of electricity'，说明政府主导的电气化努力未能满足大多数人的可靠供电需求。",
+        "distractor_analysis": {
+          "B": "绝对化陷阱：并非未建成电网，而是电网不够可靠，'failed to build' 与原文不符。",
+          "C": "与原文相反：文章说的是现状未能释放经济潜力。",
+          "D": "混淆时态与主语：这是作者的建议，不是对过去努力的描述。"
+        }
+      },
+      "tags": [
+        "detail_substitution_missed",
+        "scope_degree_change_missed"
+      ],
+      "difficulty": 2,
+      "difficulty_reason": "需要区分'未能建成电网'和'电网不可靠'的细微差别，B选项是常见陷阱",
+      "used_count": 0,
+      "last_used": null
+    },
+    {
+      "id": "CET6-RC-202606-S3-P2-Q53",
+      "meta": {
+        "year": 2026,
+        "month": 6,
+        "set": 3,
+        "passage_index": 2,
+        "question_number": 53,
+        "exam": "CET-6",
+        "type": "careful_reading",
+        "source": "英语六级2026年6月第3套阅读理解（四选一）第2篇真题.docx",
+        "section": "Part III Section C"
+      },
+      "passage_id": "CET6-RC-202606-S3-P2",
+      "question": "What is essential to tackling the power supply shortage in Africa?",
+      "options": {
+        "A": "Replacing temporary solutions with long-term strategies.",
+        "B": "Accelerating economic growth with sustainable policies.",
+        "C": "Restructuring national power generation companies.",
+        "D": "Putting in place a large-scale modern power grid speedily."
+      },
+      "answer": "D",
+      "analysis": {
+        "correct_reason": "原文第四段末句 'Deploying modern grid infrastructure with speed and at scale is essential'，D选项是对这句话的同义改写：speed→speedily，at scale→large-scale。",
+        "distractor_analysis": {
+          "A": "目的/手段混淆：'replacing temporary solutions' 是目标，D说的是实现手段；A缺少'速度'和'规模'这两个关键要素。",
+          "B": "无中生有：'sustainable policies' 文中没有对应表述。",
+          "C": "无中生有：文章完全未提及重组国有电力公司。"
+        }
+      },
+      "tags": [
+        "paraphrase_failure",
+        "detail_substitution_missed"
+      ],
+      "difficulty": 2,
+      "difficulty_reason": "需要识别 'Deploying...with speed and at scale' 对应 D 中的 'speedily' 和 'large-scale'",
+      "used_count": 0,
+      "last_used": null
+    },
+    {
+      "id": "CET6-RC-202606-S3-P2-Q54",
+      "meta": {
+        "year": 2026,
+        "month": 6,
+        "set": 3,
+        "passage_index": 2,
+        "question_number": 54,
+        "exam": "CET-6",
+        "type": "careful_reading",
+        "source": "英语六级2026年6月第3套阅读理解（四选一）第2篇真题.docx",
+        "section": "Part III Section C"
+      },
+      "passage_id": "CET6-RC-202606-S3-P2",
+      "question": "What are many governments in Africa doing to solve the electricity supply problem?",
+      "options": {
+        "A": "Focusing on building world-class infrastructures.",
+        "B": "Relying on the private sector for scale economy.",
+        "C": "Launching sustainable business models.",
+        "D": "Cooperating with private companies."
+      },
+      "answer": "D",
+      "analysis": {
+        "correct_reason": "原文第五段 'many governments...have begun to embrace the private sector as partners'，D选项 'Cooperating with private companies' 是对 'embrace...as partners' 的准确改写。",
+        "distractor_analysis": {
+          "A": "主语混淆：'building world-class infrastructure' 是私营企业做的事，不是政府。",
+          "B": "词义混淆：'scale economy（规模经济）' 是经济学术语，原文说的是 'at scale（大规模）'，含义不同。",
+          "C": "主语混淆：'sustainable business models' 是私营企业的特点，不是政府行为。"
+        }
+      },
+      "tags": [
+        "detail_substitution_missed",
+        "paraphrase_failure"
+      ],
+      "difficulty": 3,
+      "difficulty_reason": "A和C的陷阱在于混淆了行为主语（政府vs私营企业），是六级常见高难度干扰策略",
+      "used_count": 0,
+      "last_used": null
+    },
+    {
+      "id": "CET6-RC-202606-S3-P2-Q55",
+      "meta": {
+        "year": 2026,
+        "month": 6,
+        "set": 3,
+        "passage_index": 2,
+        "question_number": 55,
+        "exam": "CET-6",
+        "type": "careful_reading",
+        "source": "英语六级2026年6月第3套阅读理解（四选一）第2篇真题.docx",
+        "section": "Part III Section C"
+      },
+      "passage_id": "CET6-RC-202606-S3-P2",
+      "question": "Why will private companies be motivated to join the effort of electrifying sub-Saharan Africa?",
+      "options": {
+        "A": "There is big money to be made.",
+        "B": "They have enough funding in place.",
+        "C": "South Africa has set a successful example.",
+        "D": "Governments are turning to them for help."
+      },
+      "answer": "A",
+      "analysis": {
+        "correct_reason": "原文第七段 'electrifying sub-Saharan Africa is a $350 billion opportunity'，A选项 'big money to be made' 是对商业机会的口语化改写，指出了商业利润动机。",
+        "distractor_analysis": {
+          "B": "条件/现实混淆：原文 'With the right funding in place' 是假设条件，并非说私企已有足够资金。",
+          "C": "混淆原因与例子：南非是说明私营模式可行的例子，不是私企参与的动机。",
+          "D": "混淆动机与结果：政府求助是现象，不是私企参与的根本原因。"
+        }
+      },
+      "tags": [
+        "unsupported_inference",
+        "relation_confusion",
+        "paraphrase_failure"
+      ],
+      "difficulty": 2,
+      "difficulty_reason": "需要将 '$350 billion opportunity' 推断为商业利润动机，属于轻度推理题",
+      "used_count": 0,
+      "last_used": null
+    }
+  ]
+}
