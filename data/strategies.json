@@ -1,0 +1,156 @@
+{
+  "_comment": "CET Navigator 六级仔细阅读策略库 | 第一批 12 条 | version 1.0",
+  "_schema": {
+    "diagnosis_subtypes": "引用 references/taxonomy.md 第三节的用户错误原因子类型，仅用于候选匹配，不能由题目标签或所选干扰项直接推定",
+    "question_tags": "引用 references/taxonomy.md 第八节的题目能力标签，用于检索适合训练的题目",
+    "candidate_signals": "提示可以尝试该策略的用户行为，须通过追问或验证任务确认",
+    "example_question_ids": "现有题库中可用于讲解该策略的示例题；空数组表示尚缺对应题目，不代表策略已验证无效",
+    "validation_status": "example_available 表示有可核对的示例题；needs_question 表示需补充真题。两者都不表示教学效果已验证"
+  },
+  "strategies": [
+    {
+      "id": "S01_question_requirement_check",
+      "name": "审清题干任务",
+      "diagnosis_subtypes": ["question_requirement_misreading"],
+      "question_tags": ["detail_finding", "inference", "main_idea"],
+      "candidate_signals": ["用户回答的对象、时间或所问关系与题干不一致", "用户未注意题干中的 NOT、EXCEPT 或 INCORRECT"],
+      "steps": ["圈出题干的疑问词、对象、时间及否定词", "用一句话复述本题要找什么", "选定答案前核对选项是否回答了该问题"],
+      "validation_task": "先不看选项，让用户复述一道新题的要求，并指出需要选正确项还是错误项。",
+      "guardrail": "漏看题干必须由用户复述或作答过程支持；不能仅因答错就归为审题错误。",
+      "example_question_ids": [],
+      "validation_status": "needs_question"
+    },
+    {
+      "id": "S02_locate_with_context",
+      "name": "关键词定位并补读上下文",
+      "diagnosis_subtypes": ["keyword_mislocation", "insufficient_context"],
+      "question_tags": ["detail_finding", "inference"],
+      "candidate_signals": ["用户仅凭相同词汇选答案", "用户指出的依据句与题干对象无关，或漏看相邻句的限制"],
+      "steps": ["从题干提取对象、动作、数字等定位线索", "定位候选句并核对对象是否一致", "补读前后解释、转折、条件，再确定证据范围"],
+      "validation_task": "让用户在一篇未见过的文章中标出依据句及必要的相邻句，并解释它们如何回答题干。",
+      "guardrail": "题目顺序和文章顺序只能辅助定位；不能认定答案必在某个标点或转折词附近。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q52"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S03_paraphrase_meaning_check",
+      "name": "同义改写核验",
+      "diagnosis_subtypes": ["paraphrase_failure", "complex_wording_distraction"],
+      "question_tags": ["paraphrase_recognition"],
+      "candidate_signals": ["用户能找到原文却无法说明正确选项与原文的对应关系", "用户因选项重复原文词汇而忽略含义差异"],
+      "steps": ["分别用简单中文概括原文和选项的核心命题", "逐项比较主体、动作、条件和结果", "只在含义一致且回答题干时接受改写"],
+      "validation_task": "给出新题的原文句与两个候选改写，让用户指出对应词组并解释含义是否一致。",
+      "guardrail": "原词多寡、选项长短及词汇难度都不能单独决定答案。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q51", "CET6-RC-202606-S3-P2-Q53"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S04_actor_action_match",
+      "name": "主体与行为配对",
+      "diagnosis_subtypes": ["detail_substitution_missed", "reference_misreading"],
+      "question_tags": ["subject_identification", "detail_finding"],
+      "candidate_signals": ["用户能解释动作却把它归给另一主体", "用户无法说清代词指向谁"],
+      "steps": ["标出题干所问主体", "在证据句中列出每个主体及其行为", "核对选项是否把行为、观点或代词指向换了人"],
+      "validation_task": "在新材料中列出两个主体各自的行为，并让用户说明一个代词的指向依据。",
+      "guardrail": "如用户不理解原句结构，应先验证语言理解；不能直接诊断为选项核对错误。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q54"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S05_condition_vs_fact",
+      "name": "条件与事实分离",
+      "diagnosis_subtypes": ["relation_confusion", "scope_degree_change_missed"],
+      "question_tags": ["cause_effect_reasoning", "inference"],
+      "candidate_signals": ["用户把 if、with ... in place 等条件说成已实现的事实", "用户把可能结果说成必然结果"],
+      "steps": ["标出条件、时间和可能性表达", "分别写出已发生事实与条件成立后的结果", "核对选项是否改变了事实状态或确定程度"],
+      "validation_task": "让用户判断新材料中的两句话分别是已发生事实、条件还是预测，并说明依据。",
+      "guardrail": "条件词和情态词须结合整句判断；不能见 may 就优先选，也不能见 must 就排除。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q55"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S06_cause_means_goal",
+      "name": "因果、手段与目的分层",
+      "diagnosis_subtypes": ["relation_confusion", "unsupported_inference"],
+      "question_tags": ["cause_effect_reasoning", "inference", "detail_finding"],
+      "candidate_signals": ["用户把解决问题的手段当成最终目的", "用户把同时出现的事件直接说成因果关系"],
+      "steps": ["写出题干要问的是原因、措施还是结果", "在原文中画出关系链并标明依据", "核对选项是否颠倒方向或添加了未获支持的环节"],
+      "validation_task": "给出新段落，让用户标出问题、措施和预期结果，并解释其中一条因果关系的原文依据。",
+      "guardrail": "不能仅凭因果连接词推断未明说的动机；推断应保持最短且有证据的路径。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q53", "CET6-RC-202606-S3-P2-Q55"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S07_scope_degree_compare",
+      "name": "范围与程度核对",
+      "diagnosis_subtypes": ["scope_degree_change_missed"],
+      "question_tags": ["detail_finding", "inference", "paraphrase_recognition"],
+      "candidate_signals": ["用户把少数说成多数、把部分说成全部", "用户忽略 most、mainly、only、may 等限定"],
+      "steps": ["标出原文与选项的数量、范围和确定程度", "判断选项是否扩大、缩小或改变原文主张", "回到证据句确认这种变化是否有支持"],
+      "validation_task": "让用户比较新题原文与选项中的范围词，说明是否存在变化以及变化是否有证据。",
+      "guardrail": "绝对词只是提醒核对的线索；原文若有充分支持，绝对表述仍可能正确。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q52"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S08_example_vs_claim",
+      "name": "例子与论点分离",
+      "diagnosis_subtypes": ["example_claim_confusion", "main_idea_detail_confusion"],
+      "question_tags": ["main_idea", "inference"],
+      "candidate_signals": ["用户用局部个案回答全文观点题", "用户能复述例子但说不出它支持什么观点"],
+      "steps": ["找出例子描述的具体对象", "说明例子支持的段落论点", "根据题干选择具体事实或上位结论"],
+      "validation_task": "给出新文章中的一个例子，让用户指出它支持的观点，并分别回答例子题与主旨题。",
+      "guardrail": "题干若直接询问例子，例子本身可能就是正确依据；不能一律排除具体信息。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q51"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S09_main_idea_structure",
+      "name": "主旨与局部细节区分",
+      "diagnosis_subtypes": ["main_idea_detail_confusion", "paragraph_structure_misreading"],
+      "question_tags": ["main_idea"],
+      "candidate_signals": ["用户以单个段落或事例概括全文", "用户无法说明文章各段怎样推进中心观点"],
+      "steps": ["概括各段核心作用及文章反复发展的议题", "用一句话写出全文主张", "检查选项是否覆盖主要内容，且没有扩展到原文未支持的范围"],
+      "validation_task": "让用户为一篇新文章写一句主旨，并指出至少两处不同段落的支持证据。",
+      "guardrail": "首末段、转折句和重复词是寻找主旨的线索，不能预设主旨只在这些位置。",
+      "example_question_ids": ["CET6-RC-202606-S3-P2-Q51"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S10_sentence_layers",
+      "name": "长难句分层理解",
+      "diagnosis_subtypes": ["sentence_structure_misreading", "negation_misreading", "reference_misreading"],
+      "question_tags": ["detail_finding", "paraphrase_recognition", "inference"],
+      "candidate_signals": ["用户已定位证据句却说反主谓关系或否定范围", "用户略过影响答案的条件、修饰语或指代"],
+      "steps": ["找出句子的主体和核心谓语", "标出从句、否定、条件和指代", "将影响题目答案的修饰信息放回主干，完整复述句意"],
+      "validation_task": "让用户拆解新材料中的关键句，指出主干及影响答案的限定，并复述完整含义。",
+      "guardrail": "抓主干只是第一步；不能永久删除修饰语，也不能把每个长句都简化成主谓宾。",
+      "example_question_ids": [],
+      "validation_status": "needs_question"
+    },
+    {
+      "id": "S11_vocabulary_in_context",
+      "name": "词义放回语境验证",
+      "diagnosis_subtypes": ["key_vocabulary_misunderstanding"],
+      "question_tags": ["vocabulary_in_context", "paraphrase_recognition"],
+      "candidate_signals": ["用户按熟词常见义解释关键表达，但与上下文不通", "用户因关键生词无法解释证据句"],
+      "steps": ["判断目标词在句中的词性和搭配", "结合前后句的解释、对比或例子提出候选义", "把候选义代回原句，检查逻辑是否通顺"],
+      "validation_task": "在新文章中给出一个关键表达，让用户依据上下文猜义并代回原句解释。",
+      "guardrail": "遇到生词本身不等于词汇薄弱；只有该词影响理解或选择才记录此原因。",
+      "example_question_ids": ["CET6-RC-202412-S1-P1-Q46", "CET6-RC-202412-S1-P1-Q50"],
+      "validation_status": "example_available"
+    },
+    {
+      "id": "S12_attitude_attribution",
+      "name": "态度归属与措辞判断",
+      "diagnosis_subtypes": ["detail_substitution_missed", "paragraph_structure_misreading"],
+      "question_tags": ["attitude_opinion", "subject_identification"],
+      "candidate_signals": ["用户把引用对象的态度归给作者", "用户只凭一个褒贬词判断全文立场，忽略转折后的限定"],
+      "steps": ["确认题干问作者还是文中其他人", "标出评价词及其说话者、评价对象", "结合上下文的转折和限定，选择最符合原文程度的态度"],
+      "validation_task": "给出有作者叙述和他人引语的新材料，让用户分别指出两者态度及原文依据。",
+      "guardrail": "不预设中立、保留或强烈态度一定对错；必须以说话者和上下文证据判断。",
+      "example_question_ids": ["CET6-RC-202506-S1-P2-Q52", "CET6-RC-202412-S1-P2-Q55"],
+      "validation_status": "example_available"
+    }
+  ]
+}

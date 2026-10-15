@@ -238,3 +238,5 @@ diagnosis.md 必须使用本文件中的分类名称和标签。
 - paraphrase_recognition：改写识别，考查识别选项对原文的同义转述
 - subject_identification：主体辨认，考查区分动作或行为的主语或对象
 - cause_effect_reasoning：逻辑关系，考查判断因果、目的或条件关系
+- vocabulary_in_context：词义猜测，考查根据上下文推断词语或短语的含义
+- attitude_opinion：态度观点，考查判断作者对某事物的态度或写作意图
