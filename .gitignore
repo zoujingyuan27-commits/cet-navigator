@@ -21,7 +21,7 @@ venv/
 Thumbs.db
 
 # 原始 docx 文件（体积大，已提取为 passages.json，无需上传）
-doc/
+data\raw
 
 # WPS / Office 临时锁文件
 ~$*

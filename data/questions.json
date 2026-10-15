@@ -1,11 +1,12 @@
-﻿{
+{
   "_comment": "CET Navigator 题库文件 | 负责人：蔡佳仪 | 格式版本：v1.0",
   "_schema": {
     "说明": "每道题是 questions 数组中的一个对象，字段含义见下方",
     "id格式": "CET6-RC-{年份}{月份}-S{套次}-P{篇次}-Q{题号}",
     "difficulty": "1=易 2=中 3=难（由整理人根据题目特点判断）",
-    "tags": "薄弱点标签，必须与 taxonomy.md 中定义的标签一致，由邹婧媛确认",
-    "used_count": "该题被推荐给用户的次数，初始为0，由 update_profile.py 维护"
+    "tags": "题目能力标签，必须使用 taxonomy.md 第八节定义的标签，描述题目考查什么阅读能力，与用户错误原因标签无关。合法值：main_idea / detail_finding / inference / paraphrase_recognition / subject_identification / cause_effect_reasoning / vocabulary_in_context / attitude_opinion",
+    "used_count": "该题被推荐给用户的次数，初始为0，由 update_profile.py 维护",
+    "answer_basis": "passage_text_manual_review 表示答案由原文和选项人工核对推定，原始 docx 未附独立答案表；接入正式判分前宜再核对权威答案"
   },
   "questions": [
     {
@@ -38,10 +39,7 @@
           "D": "范围过窄：Agok的电脑课只是一个具体例子，文章讨论的是更宏观的经济影响。"
         }
       },
-      "tags": [
-        "paraphrase_failure",
-        "example_claim_confusion"
-      ],
+      "tags": ["main_idea", "paraphrase_recognition"],
       "difficulty": 2,
       "difficulty_reason": "需要识别 'keeps a lid on' 的引申义，并区分具体例子和中心论点",
       "used_count": 0,
@@ -77,10 +75,7 @@
           "D": "混淆时态与主语：这是作者的建议，不是对过去努力的描述。"
         }
       },
-      "tags": [
-        "detail_substitution_missed",
-        "scope_degree_change_missed"
-      ],
+      "tags": ["detail_finding", "paraphrase_recognition"],
       "difficulty": 2,
       "difficulty_reason": "需要区分'未能建成电网'和'电网不可靠'的细微差别，B选项是常见陷阱",
       "used_count": 0,
@@ -116,10 +111,7 @@
           "C": "无中生有：文章完全未提及重组国有电力公司。"
         }
       },
-      "tags": [
-        "paraphrase_failure",
-        "detail_substitution_missed"
-      ],
+      "tags": ["detail_finding", "paraphrase_recognition"],
       "difficulty": 2,
       "difficulty_reason": "需要识别 'Deploying...with speed and at scale' 对应 D 中的 'speedily' 和 'large-scale'",
       "used_count": 0,
@@ -155,10 +147,7 @@
           "C": "主语混淆：'sustainable business models' 是私营企业的特点，不是政府行为。"
         }
       },
-      "tags": [
-        "detail_substitution_missed",
-        "paraphrase_failure"
-      ],
+      "tags": ["detail_finding", "subject_identification", "paraphrase_recognition"],
       "difficulty": 3,
       "difficulty_reason": "A和C的陷阱在于混淆了行为主语（政府vs私营企业），是六级常见高难度干扰策略",
       "used_count": 0,
@@ -194,15 +183,261 @@
           "D": "混淆动机与结果：政府求助是现象，不是私企参与的根本原因。"
         }
       },
-      "tags": [
-        "unsupported_inference",
-        "relation_confusion",
-        "paraphrase_failure"
-      ],
+      "tags": ["inference", "cause_effect_reasoning", "paraphrase_recognition"],
       "difficulty": 2,
       "difficulty_reason": "需要将 '$350 billion opportunity' 推断为商业利润动机，属于轻度推理题",
       "used_count": 0,
       "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P1-Q46",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 1, "question_number": 46, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P1",
+      "question": "In what way were humans thought to be unique?",
+      "options": {"A": "Being a major source of animal intelligence.", "B": "Being the cornerstone of the creative world.", "C": "Being capable of same-different discrimination.", "D": "Being able to distinguish abstract from concrete."},
+      "answer": "C",
+      "analysis": {"correct_reason": "首段说根据相同与不同作推断的能力曾被认为人类独有，随后明确称其为 same-different discrimination，故选 C。", "distractor_analysis": {"A": "原文没有说人类是动物智力的主要来源。", "B": "cornerstone 修饰抽象思维，并非创造性世界。", "D": "把辨认相同与不同偷换成辨认抽象与具体。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 1, "difficulty_reason": "定位首句并识别同义转述即可。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P1-Q47",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 1, "question_number": 47, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P1",
+      "question": "What do we learn from the study published in Science?",
+      "options": {"A": "Our understanding of the bird world was biased.", "B": "Our conception of birds' intelligence was wrong.", "C": "Our communication with birds was far from adequate.", "D": "Our knowledge about bird psychology needs updating."},
+      "answer": "B",
+      "analysis": {"correct_reason": "第二段说研究挑战人们对 birdbrain 的看法，紧接着 Wasserman 指出鸟类其实极聪明；B 概括了原有智力认知被研究推翻。", "distractor_analysis": {"A": "把对鸟类智力的错误认识泛化为对整个鸟类世界的偏见。", "C": "引语中的让鸟‘说话’是比喻，文章未把沟通不足作为研究发现。", "D": "文章聚焦鸟类智力，而非鸟类心理学知识整体更新。"}},
+      "tags": ["inference", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需要结合第二段及专家引语理解 birdbrain 的含义。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P1-Q48",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 1, "question_number": 48, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P1",
+      "question": "What did the researchers discover about most ducklings from their experiment?",
+      "options": {"A": "They could associate shape with color.", "B": "They reacted quickly to moving objects.", "C": "They preferred colored objects to colorless ones.", "D": "They could tell whether the objects were the same."},
+      "answer": "D",
+      "analysis": {"correct_reason": "实验中约 70% 的小鸭趋向与第一次具有相同形状或颜色关系的新物体组合，表明它们能辨别物体之间是否相同，故选 D。", "distractor_analysis": {"A": "实验考查形状或颜色内部的相同/不同关系，不是把形状与颜色建立关联。", "B": "原文描述趋向哪组物体，未比较反应速度。", "C": "实验没有比较有色与无色物体的偏好。"}},
+      "tags": ["detail_finding", "inference"], "difficulty": 2, "difficulty_reason": "需把实验结果概括为相同/不同关系辨别能力。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P1-Q49",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 1, "question_number": 49, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P1",
+      "question": "What was novel about the experiment in the study reported in Science?",
+      "options": {"A": "The animals used received no training.", "B": "It used a number of colors and shapes.", "C": "It was conducted by experimental psychologists.", "D": "The ducklings were compared with other animals."},
+      "answer": "A",
+      "analysis": {"correct_reason": "文章指出首次证明动物无需训练即可学会概念间关系；此前其他动物的类似能力都在大量训练后观察到，故新意是 A。", "distractor_analysis": {"B": "使用不同颜色和形状是实验设计，不是与此前研究相比的新意。", "C": "研究者身份不是文中强调的创新点。", "D": "文中回顾其他动物研究，并非在该实验中将小鸭与其他动物直接比较。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "须对照本研究和此前研究的训练条件。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P1-Q50",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 1, "question_number": 50, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P1",
+      "question": "What do we learn from Dr. Wasserman's comment on the study of animal minds at the end of the passage?",
+      "options": {"A": "It is getting more and more intricate.", "B": "Research methods are being updated.", "C": "It is attracting more public attention.", "D": "Remarkable progress is being made."},
+      "answer": "D",
+      "analysis": {"correct_reason": "末段 Wasserman 称我们正处于理解动物心智能力的 revolutionary phase，强调研究取得显著进展，故选 D。", "distractor_analysis": {"A": "intricacies 指动物世界的复杂性，不是研究越来越复杂。", "B": "引语没有说明研究方法更新。", "C": "引语没有提到公众关注度。"}},
+      "tags": ["inference", "attitude_opinion", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需要将 revolutionary phase 理解为研究进展。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P2-Q51",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 2, "question_number": 51, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P2",
+      "question": "What has been a standard piece of dietary advice for decades?",
+      "options": {"A": "People should cultivate a healthy eating habit.", "B": "People should have a well-balanced diet.", "C": "People should diversify what they eat.", "D": "People should limit calorie intake to avoid obesity."},
+      "answer": "C",
+      "analysis": {"correct_reason": "首句说数十年来的基本建议是通过摄入多种食物实现 dietary diversity，C 是直接改写。", "distractor_analysis": {"A": "‘健康饮食习惯’过于笼统，未体现多样化这一具体建议。", "B": "原文说多样化，并未把均衡饮食作为所问的标准建议。", "D": "限制热量是新研究担忧的方向，不是题目所问的既有建议。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 1, "difficulty_reason": "首句直接给出建议。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P2-Q52",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 2, "question_number": 52, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P2",
+      "question": "What did the new research by the American Heart Association find?",
+      "options": {"A": "People seeking dietary diversity tend to eat more.", "B": "Big eaters are more likely to become overweight.", "C": "Dietary diversity is positively related to good health.", "D": "Unhealthy food makes people gain weight more easily."},
+      "answer": "A",
+      "analysis": {"correct_reason": "首段说研究发现饮食多样化与更多摄入健康及不健康食物相关，故追求多样化的人倾向于吃得更多，选 A。", "distractor_analysis": {"B": "研究关注饮食多样化与摄入及肥胖的关系，未以‘大食量者’为比较对象。", "C": "与文章中多样化可能增加摄入和肥胖的发现相反。", "D": "把研究所说的摄入更多健康及不健康食物，缩成单纯不健康食物导致增重。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "须区分研究发现与看似相关但更宽泛的常识。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P2-Q53",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 2, "question_number": 53, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P2",
+      "question": "What could help to explain the contradiction between the new findings and the common public health recommendation?",
+      "options": {"A": "Most dietary guidelines around the world contradict one another.", "B": "Conventional wisdom about diet is seldom supported by science.", "C": "The methods researchers use to measure nutrition vary greatly.", "D": "There is little consensus on the definition of dietary diversity."},
+      "answer": "D",
+      "analysis": {"correct_reason": "第二段明确提出矛盾可能源于对 dietary diversity 的含义缺乏一致定义，故选 D。", "distractor_analysis": {"A": "原文说多数指南都建议多样化，未说指南互相矛盾。", "B": "把这项建议缺乏科学支持泛化为传统饮食观念普遍缺乏支持。", "C": "原文说衡量饮食多样化的方式不同，不是测量营养的方法不同。"}},
+      "tags": ["cause_effect_reasoning", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需识别 possibly because 引出的解释。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P2-Q54",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 2, "question_number": 54, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P2",
+      "question": "What did Dr. Rao find after 20 years of research on obesity?",
+      "options": {"A": "Dietary diversity promotes healthy body weight.", "B": "Eating patterns and weight gain go hand in hand.", "C": "Diversified food intake may not contribute to health.", "D": "There is no clear definition of optimal eating patterns."},
+      "answer": "C",
+      "analysis": {"correct_reason": "第三段说 Rao 观察到饮食规律者通常比摄入种类繁多者更瘦、更健康，研究也未发现多样化有助于健康体重，故选 C。", "distractor_analysis": {"A": "与研究结论相反。", "B": "说法过宽，未准确表达 Rao 对饮食多样化的观察。", "D": "定义不清的是 dietary diversity，并非最佳饮食模式。"}},
+      "tags": ["detail_finding", "subject_identification", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需定位 Rao 的观察，并与研究整体结论核对。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202303-S1-P2-Q55",
+      "meta": {"year": 2023, "month": 3, "set": 1, "passage_index": 2, "question_number": 55, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2023年3月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202303-S1-P2",
+      "question": "What does the passage say about people who eat a great variety of food?",
+      "options": {"A": "They tend to consume more sweets, sugar and red meat.", "B": "They don't feel they have had enough until they overeat.", "C": "They don't have any problems getting sufficient nutrition.", "D": "They are more likely to eat foods beneficial to their health."},
+      "answer": "B",
+      "analysis": {"correct_reason": "第三段说单餐食物种类更多可能延迟饱腹感并增加摄入量，B 概括这一机制。", "distractor_analysis": {"A": "末段建议限制甜食、糖和红肉，未说饮食多样者特别多吃这些。", "C": "文章没有讨论他们是否得到充足营养。", "D": "研究发现多样化与健康及不健康食物摄入都增加相关，不能只说更可能吃健康食物。"}},
+      "tags": ["inference", "cause_effect_reasoning", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需把饱腹感延迟与过量进食联系起来，保留原文的可能性。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P1-Q46",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 1, "question_number": 46, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P1",
+      "question": "The alien finds the audience in the movie theatre clearly in a state of ______.",
+      "options": {"A": "total mindfulness", "B": "extreme excitement", "C": "spiritual elevation", "D": "intense curiosity"},
+      "answer": "B",
+      "analysis": {"correct_reason": "第三段直接称观众处于 high arousal 状态，并以心率升高、紧张张望和受惊跳起说明，B 的 extreme excitement 最接近。", "distractor_analysis": {"A": "mindfulness 强调专注觉察，不能概括强烈生理唤醒。", "C": "文章没有精神升华的描述。", "D": "紧张反应不等于强烈好奇。"}},
+      "tags": ["vocabulary_in_context", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需结合生理反应理解 high arousal。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P1-Q47",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 1, "question_number": 47, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P1",
+      "question": "Why do many people seek out scary entertainment, according to the author's research?",
+      "options": {"A": "They gain experience in overcoming horror in real life.", "B": "They find joy in going through simulated horrible experiences.", "C": "They have learned from hide-and-seek as kids the thrill involved.", "D": "They have evolved to gain pleasure in escaping life-threatening situations."},
+      "answer": "B",
+      "analysis": {"correct_reason": "作者说人类会在安全环境中体验负面情绪并从中获得乐趣，B 用模拟的可怕经历概括。", "distractor_analysis": {"A": "原文说安全环境中的模拟体验，不是现实中已经克服恐怖。", "C": "捉迷藏是解释机制的例子，不是所有人寻求恐怖娱乐的直接原因。", "D": "把安全的模拟经历改成逃离真实生命威胁。"}},
+      "tags": ["cause_effect_reasoning", "inference", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需区分模拟体验与真实危险，并识别例子和论点。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P1-Q48",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 1, "question_number": 48, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P1",
+      "question": "What do children learn from hide-and-seek?",
+      "options": {"A": "How to avoid falling prey to an attacker.", "B": "How to simulate a predator-prey interaction.", "C": "How to keep themselves from catastrophic errors.", "D": "How to turn a dangerous scenario into a safe one."},
+      "answer": "A",
+      "analysis": {"correct_reason": "作者明确说捉迷藏的模拟让儿童获得 how to avoid becoming prey 的重要信息，A 为同义表述。", "distractor_analysis": {"B": "模拟捕食关系是游戏形式，不是儿童学到的内容。", "C": "原文说潜在灾难性情境，不是儿童犯下灾难性错误。", "D": "游戏本来就在安全环境中进行，并非儿童学会将危险变安全。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 1, "difficulty_reason": "依据句直接给出学习内容。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P1-Q49",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 1, "question_number": 49, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P1",
+      "question": "Why is horror gratifying to many people?",
+      "options": {"A": "It reminds them of an ancient set of biological defence mechanisms.", "B": "It triggers their imagination to travel into dangerous virtual worlds.", "C": "It allows them to learn what fear feels like and how to tackle it.", "D": "It activates their evolved fear system and their unique fantasy."},
+      "answer": "C",
+      "analysis": {"correct_reason": "作者明确说恐怖体验让人接触负面情绪、形成应对策略，并学会恐惧是什么感觉及如何处理，C 完整对应。", "distractor_analysis": {"A": "生物防御机制是恐怖体验发挥作用的基础，原文没有说它通过提醒人们该机制带来满足。", "B": "进入危险虚拟世界是过程，未回答为何令人满足。", "D": "混合了后文关于恐怖如何运作的机制，但未概括学习应对恐惧的收益。"}},
+      "tags": ["cause_effect_reasoning", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需区分满足感的原因与恐怖体验的运作机制。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P1-Q50",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 1, "question_number": 50, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第1篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P1",
+      "question": "What will one experience if they watch a horror film through without being hurt?",
+      "options": {"A": "A strong sense of clear relevance.", "B": "A profound sense of good fortune.", "C": "A profound sense of intense relief.", "D": "A strong sense of being in control."},
+      "answer": "D",
+      "analysis": {"correct_reason": "末段说完整看完电影后会产生 strong sense of mastery，即感到自己能应对这段可怕经历，D 为同义改写。", "distractor_analysis": {"A": "原文说能力可能在未来相关，不是当下产生‘相关感’。", "B": "文中没有把幸存体验描述为幸运感。", "C": "可能感到宽慰并非原文明确强调的 mastery。"}},
+      "tags": ["vocabulary_in_context", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需理解 mastery 在语境中为掌控感。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202506-S1-P2-Q51",
+      "meta": {"year": 2025, "month": 6, "set": 1, "passage_index": 2, "question_number": 51, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2025年6月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202506-S1-P2",
+      "question": "What did the author advise people do for almost a decade?",
+      "options": {"A": "Figure out what is the most fascinating job.", "B": "Follow widely accepted career counsel.", "C": "Pursue their careers with passion.", "D": "Do whatever they are zealous for."},
+      "answer": "D",
+      "analysis": {"correct_reason": "前两段说作者近十年劝别人 Follow your passion，先做自己热爱的事，就业问题之后再考虑；D 最准确复述。", "distractor_analysis": {"A": "原文强调做热爱的事，未要求先找最有趣的工作。", "B": "该建议虽流行，但作者所劝的具体内容不是‘遵从普遍建议’。", "C": "‘带着热情从事职业’弱化了先选择自己所爱之事的原意。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需区分选择热爱之事与在既定职业中保持热情。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202506-S1-P2-Q52",
+      "meta": {"year": 2025, "month": 6, "set": 1, "passage_index": 2, "question_number": 52, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2025年6月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202506-S1-P2",
+      "question": "How did the author feel about the passion principle through his research?",
+      "options": {"A": "He was astonished by its consequences.", "B": "He was further convinced of its soundness.", "C": "He was actually right to follow it through.", "D": "He was struck by its broad popularity."},
+      "answer": "A",
+      "analysis": {"correct_reason": "作者说研究后才发现该原则有问题，且对研究结果感到 stunned；后文列出过劳和不平等后果，A 最符合。", "distractor_analysis": {"B": "与作者认为该原则 problematic 的态度相反。", "C": "作者没有说自己坚持该原则是对的。", "D": "文章也提到它流行，但作者震惊的是研究发现的问题，而非仅仅普及程度。"}},
+      "tags": ["attitude_opinion", "inference", "subject_identification"], "difficulty": 2, "difficulty_reason": "需跟踪作者由赞同到质疑的态度变化。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202506-S1-P2-Q53",
+      "meta": {"year": 2025, "month": 6, "set": 1, "passage_index": 2, "question_number": 53, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2025年6月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202506-S1-P2",
+      "question": "What is important to turning one's passion into a stable, good-paying job?",
+      "options": {"A": "Willingness to take unpaid internships and low-paying jobs.", "B": "Full academic preparedness and sound career counseling.", "C": "Hard work and sacrifice of leisure time.", "D": "Financial backing and social connections."},
+      "answer": "D",
+      "analysis": {"correct_reason": "第八段说富裕家庭子女可依靠父母支付实习及生活开销，并借助父母社交网络求职；D 概括经济资源和人脉。", "distractor_analysis": {"A": "无薪实习是资源充足者较易承担的途径，单有意愿不足以取得稳定高薪工作。", "B": "文章没有把学业准备和职业咨询列为关键条件。", "C": "勤奋及牺牲闲暇是雇主期待热情员工提供的代价，不是文中强调的入职资源。"}},
+      "tags": ["cause_effect_reasoning", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需概括多个资源例子背后的共同条件。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202506-S1-P2-Q54",
+      "meta": {"year": 2025, "month": 6, "set": 1, "passage_index": 2, "question_number": 54, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2025年6月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202506-S1-P2",
+      "question": "What happens when everyone is encouraged to follow their passion?",
+      "options": {"A": "Many more career aspirants end up unemployed.", "B": "People are less concerned with socioeconomic inequality.", "C": "Socioeconomic inequality is likely to persist.", "D": "Career counselors are going to lose credibility."},
+      "answer": "C",
+      "analysis": {"correct_reason": "文章指出不平等的经济资源使追求热情的结果不同，面向所有人推广该原则会 perpetuate socioeconomic inequalities，故选 C。", "distractor_analysis": {"A": "文中提到较易落入低薪低技能岗位，不是失业。", "B": "文章没有说公众对不平等的关注减少。", "D": "原文提到咨询人员也推广该建议，但没有推断其信誉变化。"}},
+      "tags": ["main_idea", "cause_effect_reasoning", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需把资源差异与社会经济不平等的持续联系起来。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202506-S1-P2-Q55",
+      "meta": {"year": 2025, "month": 6, "set": 1, "passage_index": 2, "question_number": 55, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2025年6月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202506-S1-P2",
+      "question": "What does the author say about employers of passionate workers?",
+      "options": {"A": "They provide these workers with job stability and a good salary.", "B": "They exploit these workers' passion to benefit themselves.", "C": "They level the playing field for these workers to reach their goals.", "D": "They encourage these workers to realize their aspirations."},
+      "answer": "B",
+      "analysis": {"correct_reason": "末段说雇主看重热情求职者，因为他们可能努力工作却不要求涨薪，甚至牺牲薪水、稳定性和休闲；B 概括雇主从中获益。", "distractor_analysis": {"A": "与员工可能牺牲高薪和稳定性相反。", "C": "文章说资源差异造成不平等，未说雇主消除这种差异。", "D": "末段强调雇主获得的好处，不是帮助员工实现志向。"}},
+      "tags": ["inference", "subject_identification", "attitude_opinion"], "difficulty": 2, "difficulty_reason": "需区分雇主收益与员工所付代价，并读出作者批评立场。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P2-Q51",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 2, "question_number": 51, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P2",
+      "question": "What do we learn about beauty in the digital arena?",
+      "options": {"A": "It dictates the taste of digital media.", "B": "It has been in the making for years.", "C": "It has ushered in a new awakening.", "D": "It is defined by social media."},
+      "answer": "D",
+      "analysis": {"correct_reason": "首段说在数字领域，社交媒体决定何为美，D 为直接改写。", "distractor_analysis": {"A": "颠倒了社交媒体与审美标准之间的决定关系。", "B": "文章没有说数字审美形成了多少年。", "C": "觉醒发生在现实世界对旧审美标准的反抗中。"}},
+      "tags": ["detail_finding", "paraphrase_recognition"], "difficulty": 1, "difficulty_reason": "首段直接给出答案。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P2-Q52",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 2, "question_number": 52, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P2",
+      "question": "What does the passage say about beauty in the physical world?",
+      "options": {"A": "Women are under constant pressure to keep up with beauty models.", "B": "Women are encouraged to pursue a beauty ideal that has never existed.", "C": "A fight is going on to remove pressure on women to conform to an absurd beauty ideal.", "D": "Media outlets have begun to present as beauty models trendy women without any makeup."},
+      "answer": "C",
+      "analysis": {"correct_reason": "第二段说现实世界正反抗女性必须迎合不现实审美标准的压力，C 准确概括。", "distractor_analysis": {"A": "描述了压力，却漏掉题目所指现实世界正在发生的反抗。", "B": "原文说审美理想不现实，未说其从未存在，也不是鼓励女性追求。", "D": "无妆照是部分社交媒体影响者的举动，不是所有媒体把无妆潮流女性塑为模板。"}},
+      "tags": ["main_idea", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需识别现实世界与数字领域的对照。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P2-Q53",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 2, "question_number": 53, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P2",
+      "question": "What do we learn from the passage about the Instagram face?",
+      "options": {"A": "It is now regarded as the new beauty ideal.", "B": "It is what most women will go after in 2050.", "C": "It is being much talked about on social media.", "D": "It is a perfect illustration of the ultimate beauty."},
+      "answer": "A",
+      "analysis": {"correct_reason": "第四段明确说 Instagram face 已成为新的审美理想，故选 A。", "distractor_analysis": {"B": "2050 年的预测修饰 cyborg look，不是 Instagram face。", "C": "原文强调它成为审美标准，不是讨论热度。", "D": "作者没有认可它是终极美的完美体现。"}},
+      "tags": ["detail_finding", "subject_identification"], "difficulty": 1, "difficulty_reason": "需区分相邻段落的两种审美概念。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P2-Q54",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 2, "question_number": 54, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P2",
+      "question": "What has obsessive filtering resulted in?",
+      "options": {"A": "A good many women striving to reach an impossible level of perfection.", "B": "An urge to turn the entire game played on the network to one's advantage.", "C": "A tendency to regard one's body as an object of observation and judgment.", "D": "An increasing number of women filtering their images before uploading them."},
+      "answer": "C",
+      "analysis": {"correct_reason": "第七段明确说过度滤镜的显著后果是把自己当作被旁人观察和评价的对象，C 对应。", "distractor_analysis": {"A": "追求完美是文章讨论的更广泛现象，不是该段直接点出的滤镜后果。", "B": "文章未提出利用网络游戏获利。", "D": "滤镜使用人数是调查背景，不是过度滤镜的后果。"}},
+      "tags": ["cause_effect_reasoning", "detail_finding", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需区分现象、背景和后果。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
+    },
+    {
+      "id": "CET6-RC-202412-S1-P2-Q55",
+      "meta": {"year": 2024, "month": 12, "set": 1, "passage_index": 2, "question_number": 55, "exam": "CET-6", "type": "careful_reading", "source": "英语六级2024年12月第1套阅读理解（四选一）第2篇真题.docx", "section": "Part III Section C"},
+      "passage_id": "CET6-RC-202412-S1-P2",
+      "question": "What does the author want to emphasize at the end of the passage regarding Americans' obsession with looks?",
+      "options": {"A": "Cosmetic surgery should be made more accessible to the masses.", "B": "Psychological intervention should be introduced to alleviate it.", "C": "Their time spent on social media should be strictly controlled.", "D": "Its root cause should be meticulously examined and analyzed."},
+      "answer": "B",
+      "analysis": {"correct_reason": "末句说这种不可能的审美理想带来的冲动需要 mental health care，而非 cosmetic intervention，B 概括需要心理健康干预。", "distractor_analysis": {"A": "与作者认为整容干预不能解决问题相反。", "C": "社交媒体时间是诱因，但作者没有明确主张严格控制时长。", "D": "文章没有把仔细分析根因作为末段强调的解决方式。"}},
+      "tags": ["attitude_opinion", "main_idea", "paraphrase_recognition"], "difficulty": 2, "difficulty_reason": "需理解作者最后一句的解决方案和态度。", "answer_basis": "passage_text_manual_review", "used_count": 0, "last_used": null
     }
   ]
 }
